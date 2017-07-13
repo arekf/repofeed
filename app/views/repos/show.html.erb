@@ -1,0 +1,12 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= @repo.owner %>/<%= @repo.name %></h1>
+
+<% @commits.each do |commit| %>
+  <div>
+    <%= commit.message %>
+  </div>
+<% end %>
+
+<%= link_to 'Edit', edit_repo_path(@repo) %> |
+<%= link_to 'Back', repos_path %>
