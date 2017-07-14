@@ -14,10 +14,7 @@ module GithubAPI
     end
 
     def commits
-      Rails.cache.fetch(cache_key('commits'), expires_in: 1.minute) do
-        commits = api_response(commits_api_endpoint)
-        commits.map { |c| Models::Commit.new(c) }
-      end
+      api_response(commits_api_endpoint)
     end
 
     private
@@ -25,7 +22,7 @@ module GithubAPI
     def api_response(endpoint)
       api_response = Net::HTTP.get_response(URI(endpoint))
 
-      raise GithubAPI::Errors::RepoNotFound if api_response.code == '404'
+      raise GithubAPI::Errors::RepoNotFound        if api_response.code == '404'
       raise GithubAPI::Errors::Error, api_response unless api_response.is_a?(Net::HTTPSuccess)
 
       JSON.parse(api_response.body)
@@ -33,10 +30,6 @@ module GithubAPI
 
     def commits_api_endpoint
       "#{API_URL}/repos/#{owner}/#{name}/commits"
-    end
-
-    def cache_key(endpoint)
-      "#{owner}/#{name}/#{endpoint}"
     end
   end
 end

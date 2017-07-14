@@ -3,5 +3,6 @@
 Rails.application.routes.draw do
   root 'repos#index'
 
+  resources :commits
   resources :repos
 end

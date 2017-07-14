@@ -7,19 +7,9 @@ class ReposController < ApplicationController
     @repos = Repo.all
   end
 
-  def show
-    @commits = GithubAPI::Repo.new(@repo.owner, @repo.name).commits
-  rescue GithubAPI::Errors::RepoNotFound
-    redirect_to repos_path, notice: 'This repository does not exist'
-  rescue GithubAPI::Errors::Error
-    redirect_to repos_path, notice: 'There was an error connecting with GitHub API. Try again soon'
-  end
-
   def new
     @repo = Repo.new
   end
-
-  def edit; end
 
   def create
     @repo = Repo.new(repo_params)

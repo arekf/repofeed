@@ -2,11 +2,7 @@
 
 <h1><%= @repo.owner %>/<%= @repo.name %></h1>
 
-<% @commits.each do |commit| %>
-  <div>
-    <%= commit.message %>
-  </div>
-<% end %>
+<%= render @repo.commits %>
 
 <%= link_to 'Edit', edit_repo_path(@repo) %> |
 <%= link_to 'Back', repos_path %>

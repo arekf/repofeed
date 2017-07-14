@@ -10,7 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170713150630) do
+ActiveRecord::Schema.define(version: 20170714133753) do
+
+  create_table "commits", force: :cascade do |t|
+    t.integer "repo_id"
+    t.string "sha", null: false
+    t.text "message", null: false
+    t.string "author_name", null: false
+    t.string "author_email", null: false
+    t.string "author_avatar_url"
+    t.datetime "commited_at", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["repo_id"], name: "index_commits_on_repo_id"
+    t.index [nil, "sha"], name: "index_commits_on_repo_and_sha", unique: true
+  end
 
   create_table "repos", force: :cascade do |t|
     t.string "owner", null: false
