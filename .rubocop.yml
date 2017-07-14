@@ -1,0 +1,12 @@
+AllCops:
+  TargetRubyVersion: 2.4
+  Exclude:
+    - 'bin/**/*'
+    - 'db/schema.rb'
+    - 'tmp/**/*'
+
+Metrics/LineLength:
+  Max: 120
+
+Style/Documentation:
+  Enabled: false

@@ -1,19 +1,22 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 
+gem 'puma'
 gem 'rails'
 gem 'sqlite3'
-gem 'puma'
+
+gem 'rubocop'
 gem 'sass-rails'
+gem 'turbolinks'
 gem 'uglifier'
 
-gem 'turbolinks'
-
 group :development, :test do
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
 end
 
 group :development do
   gem 'web-console'
 end
 
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

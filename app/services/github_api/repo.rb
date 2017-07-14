@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 require 'net/http'
 
 module GithubAPI
   class Repo
-    API_URL = 'https://api.github.com'.freeze
+    API_URL = 'https://api.github.com'
 
     attr_reader :owner, :name
 
@@ -23,8 +25,8 @@ module GithubAPI
     def api_response(endpoint)
       api_response = Net::HTTP.get_response(URI(endpoint))
 
-      raise GithubAPI::Errors::RepoNotFound.new if api_response.code == '404'
-      raise GithubAPI::Errors::Error.new(api_response) unless api_response.is_a?(Net::HTTPSuccess)
+      raise GithubAPI::Errors::RepoNotFound if api_response.code == '404'
+      raise GithubAPI::Errors::Error, api_response unless api_response.is_a?(Net::HTTPSuccess)
 
       JSON.parse(api_response.body)
     end

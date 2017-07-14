@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class ReposController < ApplicationController
-  before_action :set_repo, only: [:show, :edit, :update, :destroy]
+  before_action :set_repo, only: %i[show edit update destroy]
 
   def index
     @repos = Repo.all
@@ -7,7 +9,6 @@ class ReposController < ApplicationController
 
   def show
     @commits = GithubAPI::Repo.new(@repo.owner, @repo.name).commits
-
   rescue GithubAPI::Errors::RepoNotFound
     redirect_to repos_path, notice: 'This repository does not exist'
   rescue GithubAPI::Errors::Error
@@ -18,8 +19,7 @@ class ReposController < ApplicationController
     @repo = Repo.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @repo = Repo.new(repo_params)
@@ -45,11 +45,12 @@ class ReposController < ApplicationController
   end
 
   private
-    def set_repo
-      @repo = Repo.find(params[:id])
-    end
 
-    def repo_params
-      params.require(:repo).permit(:owner, :name)
-    end
+  def set_repo
+    @repo = Repo.find(params[:id])
+  end
+
+  def repo_params
+    params.require(:repo).permit(:owner, :name)
+  end
 end

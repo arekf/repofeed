@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class ReposControllerTest < ActionDispatch::IntegrationTest
@@ -5,17 +7,17 @@ class ReposControllerTest < ActionDispatch::IntegrationTest
     @repo = repos(:one)
   end
 
-  test "should get index" do
+  test 'should get index' do
     get repos_url
     assert_response :success
   end
 
-  test "should get new" do
+  test 'should get new' do
     get new_repo_url
     assert_response :success
   end
 
-  test "should create repo" do
+  test 'should create repo' do
     assert_difference('Repo.count') do
       post repos_url, params: { repo: { name: @repo.name, owner: @repo.owner } }
     end
@@ -23,22 +25,22 @@ class ReposControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to repo_url(Repo.last)
   end
 
-  test "should show repo" do
+  test 'should show repo' do
     get repo_url(@repo)
     assert_response :success
   end
 
-  test "should get edit" do
+  test 'should get edit' do
     get edit_repo_url(@repo)
     assert_response :success
   end
 
-  test "should update repo" do
+  test 'should update repo' do
     patch repo_url(@repo), params: { repo: { name: @repo.name, owner: @repo.owner } }
     assert_redirected_to repo_url(@repo)
   end
 
-  test "should destroy repo" do
+  test 'should destroy repo' do
     assert_difference('Repo.count', -1) do
       delete repo_url(@repo)
     end
