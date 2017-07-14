@@ -2,9 +2,10 @@
 
 class ReposController < ApplicationController
   before_action :set_repo, only: %i[show edit update destroy]
+  before_action :set_repos, only: %i[index show]
 
   def index
-    @repos = Repo.all
+    @repo = @repos.first
   end
 
   def new
@@ -38,6 +39,10 @@ class ReposController < ApplicationController
 
   def set_repo
     @repo = Repo.find(params[:id])
+  end
+
+  def set_repos
+    @repos = Repo.all
   end
 
   def repo_params

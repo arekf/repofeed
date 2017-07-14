@@ -1,8 +1,9 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col col-md-3">
+    <%= render 'list' %>
+  </div>
 
-<h1><%= @repo.owner %>/<%= @repo.name %></h1>
-
-<%= render @repo.commits %>
-
-<%= link_to 'Edit', edit_repo_path(@repo) %> |
-<%= link_to 'Back', repos_path %>
+  <div class="col col-md-9">
+    <%= render @repo %>
+  </div>
+</div>

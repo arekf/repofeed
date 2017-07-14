@@ -6,10 +6,12 @@ gem 'puma'
 gem 'rails'
 gem 'sqlite3'
 
-gem 'rubocop'
+gem 'bootstrap'
 gem 'sass-rails'
 gem 'turbolinks'
 gem 'uglifier'
+
+gem 'rubocop'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

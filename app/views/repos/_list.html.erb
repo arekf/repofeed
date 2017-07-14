@@ -1,0 +1,7 @@
+<ul class="nav nav-pills flex-column">
+  <% @repos.each do |repo| %>
+    <li class="nav-item">
+      <%= link_to "#{repo.owner}/#{repo.name}", repo, class: repo_nav_item_classes(repo) %>
+    </li>
+  <% end %>
+</ul>

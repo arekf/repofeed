@@ -13,3 +13,13 @@
  *= require_tree .
  *= require_self
  */
+
+@import 'bootstrap';
+
+.container {
+  margin-bottom: 20px;
+}
+
+.commit .message {
+  display: block;
+}
