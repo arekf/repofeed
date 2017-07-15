@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RepoCommitUpdater
   attr_reader :repo
 

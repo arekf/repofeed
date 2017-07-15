@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateCommits < ActiveRecord::Migration[5.1]
   def change
     create_table :commits do |t|
@@ -12,6 +14,6 @@ class CreateCommits < ActiveRecord::Migration[5.1]
       t.timestamps
     end
 
-    add_index :commits, [:repo, :sha], unique: true
+    add_index :commits, %i[repo sha], unique: true
   end
 end

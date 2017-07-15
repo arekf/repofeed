@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 namespace :repos do
-  desc "Update latest commit data"
+  desc 'Update latest commit data'
   task update_commits: :environment do
     Repo.find_each do |repo|
       puts "Updating commits for #{repo.owner}/#{repo.name}..."

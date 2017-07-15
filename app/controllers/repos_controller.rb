@@ -4,7 +4,7 @@ class ReposController < ApplicationController
   before_action :set_repo, only: %i[show destroy]
 
   def index
-    redirect_to new_repo_path and return unless Repo.exists?
+    redirect_to(new_repo_path) && return unless Repo.exists?
     redirect_to Repo.first
   end
 
