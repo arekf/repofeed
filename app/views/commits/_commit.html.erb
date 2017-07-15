@@ -1,3 +1,22 @@
-<li class="commit list-group-item">
-  <%= commit.message %> by <%= commit.author_name %>
-</li>
+<div class="list-group-item">
+  <div class="d-flex w-100 justify-content-between">
+    <%= link_to commit.url do %>
+      <h5 class="mb-1" title="<%= commit.message_subject %>">
+        <%= commit.message_subject.truncate(70) %>
+      </h5>
+    <% end %>
+    <small title="<%= commit.commited_at.strftime('%Y-%m-%d %H:%M:%S') %>">
+      <%= time_ago_in_words(commit.commited_at) %> ago
+    </small>
+  </div>
+
+  <div class="w-100">
+    <pre><%= commit.message_body %></pre>
+  </div>
+
+  <small class="text-muted">
+    by
+    <img src="<%= commit.author_avatar_url %>" width="16" height="16" />
+    <%= mail_to commit.author_email, commit.author_name %>
+  </small>
+</div>

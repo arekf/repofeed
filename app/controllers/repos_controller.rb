@@ -1,11 +1,15 @@
 # frozen_string_literal: true
 
 class ReposController < ApplicationController
-  before_action :set_repo, only: %i[show edit update destroy]
-  before_action :set_repos, only: %i[index show]
+  before_action :set_repo, only: %i[show destroy]
 
   def index
-    @repo = @repos.first
+    redirect_to new_repo_path and return unless Repo.exists?
+    redirect_to Repo.first
+  end
+
+  def show
+    @repos = Repo.all
   end
 
   def new
@@ -16,33 +20,21 @@ class ReposController < ApplicationController
     @repo = Repo.new(repo_params)
 
     if @repo.save
-      redirect_to @repo, notice: 'Repo was successfully created.'
+      redirect_to @repo
     else
       render :new
     end
   end
 
-  def update
-    if @repo.update(repo_params)
-      redirect_to @repo, notice: 'Repo was successfully updated.'
-    else
-      render :edit
-    end
-  end
-
   def destroy
     @repo.destroy
-    redirect_to repos_url, notice: 'Repo was successfully destroyed.'
+    redirect_to repos_url
   end
 
   private
 
   def set_repo
     @repo = Repo.find(params[:id])
-  end
-
-  def set_repos
-    @repos = Repo.all
   end
 
   def repo_params

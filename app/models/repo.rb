@@ -4,5 +4,5 @@ class Repo < ApplicationRecord
   validates :owner, presence: true
   validates :name,  presence: true
 
-  has_many :commits
+  has_many :commits, dependent: :destroy
 end

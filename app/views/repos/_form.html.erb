@@ -1,27 +1,17 @@
-<%= form_with(model: repo, local: true) do |form| %>
-  <% if repo.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(repo.errors.count, "error") %> prohibited this repo from being saved:</h2>
-
-      <ul>
-      <% repo.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<%= form_with(model: repo, local: true, class: 'form-inline') do |form| %>
+  <div class="form-check mr-sm-2">
+    <div class="field <%= 'has-danger' if repo.errors[:owner].present? %>">
+      <%= form.text_field :owner, placeholder: 'owner (ex. rails)', class: 'form-control form-control-danger' %>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= form.label :owner %>
-    <%= form.text_field :owner, id: :repo_owner %>
-  </div>
+    <div class="ml-sm-2 mr-sm-2">/</div>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :repo_name %>
-  </div>
+    <div class="field mr-sm-2 mb-2 mb-sm-0 <%= 'has-danger' if repo.errors[:name].present? %>">
+      <%= form.text_field :name, placeholder: 'name (ex. sprockets)', class: 'form-control form-control-danger' %>
+    </div>
 
-  <div class="actions">
-    <%= form.submit %>
+    <div class="field">
+      <%= form.submit class: 'btn btn-primary' %>
+    </div>
   </div>
 <% end %>

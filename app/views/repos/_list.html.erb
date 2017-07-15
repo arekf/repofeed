@@ -4,4 +4,8 @@
       <%= link_to "#{repo.owner}/#{repo.name}", repo, class: repo_nav_item_classes(repo) %>
     </li>
   <% end %>
+  <li class="nav-item">
+    <%= link_to 'Add Repo', new_repo_path, class: 'nav-link' %>
+  </li>
 </ul>
+

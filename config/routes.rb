@@ -3,6 +3,5 @@
 Rails.application.routes.draw do
   root 'repos#index'
 
-  resources :commits
-  resources :repos
+  resources :repos, except: %i(edit update)
 end
