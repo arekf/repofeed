@@ -12,10 +12,11 @@ gem 'sass-rails'
 gem 'turbolinks'
 gem 'uglifier'
 
-gem 'rubocop'
-
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'database_cleaner'
+  gem 'rspec-rails'
+  gem 'rubocop'
 end
 
 group :development do
