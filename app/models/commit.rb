@@ -1,4 +1,12 @@
+# frozen_string_literal: true
+
 class Commit < ApplicationRecord
+  validates :sha,          presence: true, format: /\A[a-f0-9]{40}\z/
+  validates :message,      presence: true
+  validates :commited_at,  presence: true
+  validates :author_name,  presence: true
+  validates :author_email, presence: true
+
   belongs_to :repo
 
   def message_subject
