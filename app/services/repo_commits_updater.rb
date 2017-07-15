@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class RepoCommitUpdater
+class RepoCommitsUpdater
   attr_reader :repo
 
   def initialize(repo)
@@ -11,7 +11,7 @@ class RepoCommitUpdater
     commits = GithubAPI::Repo.new(repo.owner, repo.name).commits
 
     commits.each do |attributes|
-      repo.commits.find_or_create_by(sha: attributes['sha']) do |commit|
+      repo.commits.find_or_create_by!(sha: attributes['sha']) do |commit|
         commit.message           = attributes['commit']['message']
         commit.commited_at       = attributes['commit']['author']['date'].to_datetime
         commit.author_name       = attributes['commit']['author']['name']

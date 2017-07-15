@@ -13,14 +13,18 @@ module GithubAPI
       @name = name
     end
 
+    def info
+      api_response(api_endpoint)
+    end
+
     def commits
-      api_response(commits_api_endpoint)
+      api_response(api_endpoint(:commits))
     end
 
     private
 
-    def api_response(endpoint)
-      api_response = Net::HTTP.get_response(URI(endpoint))
+    def api_response(endpoint_url)
+      api_response = Net::HTTP.get_response(URI(endpoint_url))
 
       raise GithubAPI::Errors::RepoNotFound        if api_response.code == '404'
       raise GithubAPI::Errors::Error, api_response unless api_response.is_a?(Net::HTTPSuccess)
@@ -28,8 +32,9 @@ module GithubAPI
       JSON.parse(api_response.body)
     end
 
-    def commits_api_endpoint
-      "#{API_URL}/repos/#{owner}/#{name}/commits"
+    def api_endpoint(endpoint_name = '')
+      endpoint_name = "/#{endpoint_name}" unless endpoint_name.blank?
+      "#{API_URL}/repos/#{owner}/#{name}#{endpoint_name}"
     end
   end
 end

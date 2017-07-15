@@ -1,0 +1,12 @@
+<div class="card mb-2">
+  <div class="card-block">
+    <h5>
+      <%= image_tag @repo.owner_avatar_url, width: 32, heigth: 32 %>
+      <%= link_to @repo.url do %>
+        <%= @repo.owner %> / <%= @repo.name %>
+      <% end %>
+    </h5>
+    <small>Stars: <%= @repo.stars_count %></small> |
+    <small>Open Issues: <%= link_to @repo.open_issues_count, @repo.issues_url %></small>
+  </div>
+</div>

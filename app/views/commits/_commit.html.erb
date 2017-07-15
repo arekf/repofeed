@@ -16,7 +16,7 @@
 
   <small class="text-muted">
     by
-    <img src="<%= commit.author_avatar_url %>" width="16" height="16" />
+    <%= image_tag commit.author_avatar_url, width: 16, height: 16 %>
     <%= mail_to commit.author_email, commit.author_name %>
   </small>
 </div>
