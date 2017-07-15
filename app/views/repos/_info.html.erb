@@ -7,6 +7,9 @@
       <% end %>
     </h5>
     <small>Stars: <%= @repo.stars_count %></small> |
-    <small>Open Issues: <%= link_to @repo.open_issues_count, @repo.issues_url %></small>
+    <small>Open Issues: <%= link_to @repo.open_issues_count, @repo.issues_url %></small> |
+
+    <small><%= link_to 'Remove', @repo, method: :delete , class: 'pull-right text-danger' %></small>
+
   </div>
 </div>

@@ -31,5 +31,6 @@ module Repofeed
     config.generators.system_tests = nil
 
     config.autoload_paths << "#{Rails.root}/app/services"
+    config.active_job.queue_adapter = :sidekiq
   end
 end

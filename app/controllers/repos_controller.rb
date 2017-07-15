@@ -20,6 +20,7 @@ class ReposController < ApplicationController
     @repo = Repo.new(repo_params)
 
     if @repo.save
+      UpdateRepoDataJob.perform_later(@repo)
       redirect_to @repo
     else
       render :new

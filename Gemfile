@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 
 gem 'puma'
 gem 'rails'
+gem 'sidekiq'
 gem 'sqlite3'
 
 gem 'bootstrap'

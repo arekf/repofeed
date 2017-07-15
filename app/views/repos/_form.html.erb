@@ -1,4 +1,9 @@
 <%= form_with(model: repo, local: true, class: 'form-inline') do |form| %>
+    <% if repo.errors %>
+        <div class="mb-2 w-100">
+          <%= repo.errors.full_messages.join(', ') %>
+        </div>
+    <% end %>
   <div class="form-check mr-sm-2">
     <div class="field <%= 'has-danger' if repo.errors[:owner].present? %>">
       <%= form.text_field :owner, placeholder: 'owner (ex. rails)', class: 'form-control form-control-danger' %>

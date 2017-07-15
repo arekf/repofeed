@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170715125632) do
+ActiveRecord::Schema.define(version: 20170715134146) do
 
   create_table "commits", force: :cascade do |t|
     t.integer "repo_id"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20170715125632) do
     t.integer "stars_count", default: 0, null: false
     t.integer "open_issues_count", default: 0, null: false
     t.string "owner_avatar_url"
+    t.integer "update_status", default: 0, null: false
     t.index ["owner", "name"], name: "index_repos_on_owner_and_name", unique: true
   end
 

@@ -4,7 +4,17 @@
   </div>
 
   <div class="col-xs-12 col-md-9">
-    <%= render 'info' %>
-    <%= render @repo %>
+    <% if @repo.update_in_progress? %>
+      <p data-repo-update-in-progress>Your repository data is now updated. Please wait...</p>
+    <% elsif @repo.update_errored? %>
+      <p>
+        There was a problem updating this repo.
+        Please check if it exists and GitHub is not down.
+        You can <%= link_to 'remove it', @repo, method: :delete %>.
+      </p>
+    <% else %>
+      <%= render 'info' %>
+      <%= render @repo %>
+    <% end %>
   </div>
 </div>
