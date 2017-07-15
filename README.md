@@ -1,24 +1,26 @@
-# README
+[![Build Status](https://travis-ci.org/arekf/repofeed.svg?branch=develop)](https://travis-ci.org/arekf/repofeed) [![Code Climate](https://codeclimate.com/github/arekf/repofeed/badges/gpa.svg)](https://codeclimate.com/github/arekf/repofeed)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Repofeed
 
-Things you may want to cover:
+Repofeed is a simple Ruby on Rails application that allows you to collect information about latest commits.
 
-* Ruby version
+# Setup
 
-* System dependencies
+This is fairly standard Rails application. It uses Ruby 2.4 and Rails 5.1.
 
-* Configuration
+When you have Ruby and Budler installed, install gems with:
+```
+bundle install
+```
 
-* Database creation
+You should be able to run Rails server with:
+```
+rails server
+```
 
-* Database initialization
+It uses Sidekiq as ActiveJob adapter, so if you need it, run:
+```
+sidekiq
+```
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# Enjoy!
