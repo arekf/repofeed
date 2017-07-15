@@ -1,0 +1,11 @@
+language: ruby
+cache: bundler
+sudo: false
+before_script:
+  - RAILS_ENV=test bin/rails db:migrate
+rvm:
+  - 2.4.1
+branches:
+  only:
+  - master
+  - develop

@@ -14,6 +14,6 @@ class CreateCommits < ActiveRecord::Migration[5.1]
       t.timestamps
     end
 
-    add_index :commits, %i[repo sha], unique: true
+    add_index :commits, %i[repo_id sha], unique: true
   end
 end

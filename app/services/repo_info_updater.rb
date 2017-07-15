@@ -12,10 +12,10 @@ class RepoInfoUpdater
 
     info = repo_api.info
 
-    repo.stars_count = info['stargazers_count']
+    repo.stars_count       = info['stargazers_count']
     repo.open_issues_count = info['open_issues_count']
-    repo.owner_avatar_url = info['owner']['avatar_url']
-    repo.update_status = 'update_finished'
+    repo.owner_avatar_url  = info['owner']['avatar_url']
+    repo.update_status     = 'update_finished'
 
     repo.save!
   rescue
