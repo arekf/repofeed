@@ -22,8 +22,8 @@ ActiveRecord::Schema.define(version: 20170715134146) do
     t.datetime "commited_at", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["repo_id", "sha"], name: "index_commits_on_repo_id_and_sha", unique: true
     t.index ["repo_id"], name: "index_commits_on_repo_id"
-    t.index [nil, "sha"], name: "index_commits_on_repo_and_sha", unique: true
   end
 
   create_table "repos", force: :cascade do |t|
