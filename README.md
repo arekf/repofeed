@@ -18,12 +18,10 @@ Setup database using:
 rake db:setup
 ```
 
-It uses Sidekiq as ActiveJob adapter, so you need to run:
+It uses Sidekiq as ActiveJob adapter. Sidekiq requires Redis server to be installed and running. When it's running, you start Sidekiq with:
 ```
 sidekiq
 ```
-
-Sidekiq requires Redis server to be installed and running.
 
 You should be able to run Rails server with:
 ```
