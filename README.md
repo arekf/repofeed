@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/arekf/repofeed.svg?branch=develop)](https://travis-ci.org/arekf/repofeed) [![Code Climate](https://codeclimate.com/github/arekf/repofeed/badges/gpa.svg)](https://codeclimate.com/github/arekf/repofeed)
+[![Build Status](https://travis-ci.org/arekf/repofeed.svg?branch=master)](https://travis-ci.org/arekf/repofeed) [![Code Climate](https://codeclimate.com/github/arekf/repofeed/badges/gpa.svg)](https://codeclimate.com/github/arekf/repofeed)
 
 # Repofeed
 
