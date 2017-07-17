@@ -18,14 +18,16 @@ Setup database using:
 rake db:setup
 ```
 
+It uses Sidekiq as ActiveJob adapter, so you need to run:
+```
+sidekiq
+```
+
+Sidekiq requires Redis server to be installed and running.
+
 You should be able to run Rails server with:
 ```
 rails server
-```
-
-It uses Sidekiq as ActiveJob adapter, so if you need it, run:
-```
-sidekiq
 ```
 
 You can run test suite using:
