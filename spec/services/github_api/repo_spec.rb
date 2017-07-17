@@ -64,7 +64,7 @@ RSpec.describe GithubAPI::Repo, type: :service do
       end
 
       it 'throws repo not found error' do
-        expect { subject }.to raise_error GithubAPI::Errors::RepoNotFound
+        expect { subject }.to raise_error GithubAPI::Error
       end
     end
 
@@ -76,7 +76,7 @@ RSpec.describe GithubAPI::Repo, type: :service do
       end
 
       it 'throws repo not found error' do
-        expect { subject }.to raise_error GithubAPI::Errors::RepoNotFound
+        expect { subject }.to raise_error GithubAPI::Error
       end
     end
   end
